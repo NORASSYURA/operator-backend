@@ -72,7 +72,10 @@ public class OperatorController {
 
         return OperatorResponseDTO.fromEntity(newOperator);
     }
-
+    @DeleteMapping("/{id}")
+    public void deleteOperator(@PathVariable Long id) {
+        repository.deleteById(id);
+    }
     @PostMapping("/logout/{id}")
     public OperatorResponseDTO logout(@PathVariable Long id) {
         Operator operator = repository.findById(id)
