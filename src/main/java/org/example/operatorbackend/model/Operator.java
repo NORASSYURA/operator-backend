@@ -15,6 +15,7 @@ public class Operator {
     private String email;
     private String password;
     private String role;
+    private Double rate;
 
     @Column(name = "company_id")
     private Long companyId;
@@ -41,6 +42,12 @@ public class Operator {
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
 
+    public String getRole() { return role; }
+    public void setRole(String role) { this.role = role; }
+
+    public Double getRate() { return rate; }
+    public void setRate(Double rate) { this.rate = rate; }
+
     public Long getCompanyId() { return companyId; }
     public void setCompanyId(Long companyId) { this.companyId = companyId; }
 
@@ -52,9 +59,4 @@ public class Operator {
 
     public LocalDateTime getLastLogout() { return lastLogout; }
     public void setLastLogout(LocalDateTime lastLogout) { this.lastLogout = lastLogout; }
-
-    public String getRole() { return role; }
-    public void setRole(String role) { this.role = role; }
-
-    
 }
