@@ -14,6 +14,7 @@ public class Operator {
     private String name;
     private String email;
     private String password;
+    private String role;
 
     @Column(name = "company_id")
     private Long companyId;
@@ -51,4 +52,9 @@ public class Operator {
 
     public LocalDateTime getLastLogout() { return lastLogout; }
     public void setLastLogout(LocalDateTime lastLogout) { this.lastLogout = lastLogout; }
+
+    public String getRole() { return role; }
+    public void setRole(String role) { this.role = role; }
+
+    
 }
