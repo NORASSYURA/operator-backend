@@ -2,6 +2,7 @@ package org.example.operatorbackend.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "operators")
@@ -16,6 +17,12 @@ public class Operator {
     private String password;
     private String role;
     private Double rate;
+    private String homeAddress;
+    private String phoneNumber;
+
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "operator_id")
+    private List<Document> documents;
 
     @Column(name = "company_id")
     private Long companyId;
@@ -47,6 +54,15 @@ public class Operator {
 
     public Double getRate() { return rate; }
     public void setRate(Double rate) { this.rate = rate; }
+
+    public String getHomeAddress() { return homeAddress; }
+    public void setHomeAddress(String homeAddress) { this.homeAddress = homeAddress; }
+
+    public String getPhoneNumber() { return phoneNumber; }
+    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
+
+    public List<Document> getDocuments() { return documents; }
+    public void setDocuments(List<Document> documents) { this.documents = documents; }
 
     public Long getCompanyId() { return companyId; }
     public void setCompanyId(Long companyId) { this.companyId = companyId; }
