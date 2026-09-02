@@ -12,6 +12,7 @@ public class OperatorResponseDTO {
     private boolean isLoggedIn;
     private LocalDateTime lastLogin;
     private String role;
+    private Double rate;
 
     public OperatorResponseDTO() {
     }
@@ -25,6 +26,7 @@ public class OperatorResponseDTO {
         dto.setLoggedIn(operator.isLoggedIn());
         dto.setLastLogin(operator.getLastLogin());
         dto.setRole(operator.getRole());
+        dto.setRate(operator.getRate());
         return dto;
     }
 
@@ -49,4 +51,7 @@ public class OperatorResponseDTO {
 
     public String getRole() { return role; }
     public void setRole(String role) { this.role = role; }
+
+    public Double getRate() { return rate; }
+    public void setRate(Double rate) { this.rate = rate; }
 }
