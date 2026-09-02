@@ -43,8 +43,8 @@ public class OperatorController {
 
         // Generate the JWT Token
        String role = (operator.getRole() != null) ? operator.getRole() : "USER";
+String role = (operator.getRole() != null) ? operator.getRole() : "USER";
 String token = jwtUtil.generateToken(operator.getEmail(), role);
-
         // Return the Token AND the User Data
         Map<String, Object> response = new HashMap<>();
         response.put("token", token);
