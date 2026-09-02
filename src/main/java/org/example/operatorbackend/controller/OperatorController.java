@@ -76,23 +76,21 @@ public class OperatorController {
         
         operator.setName(updatedOperator.getName());
         operator.setEmail(updatedOperator.getEmail());
+        operator.setRate(updatedOperator.getRate());
         repository.save(operator);
         
         return OperatorResponseDTO.fromEntity(operator);
     }
 
-    // NEW: Change Password endpoint
     @PutMapping("/change-password/{id}")
     public OperatorResponseDTO changePassword(@PathVariable Long id, @RequestBody LoginRequest request) {
         Operator operator = repository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Operator not found with id: " + id));
 
-        // Check if the old password matches
         if (!passwordEncoder.matches(request.getPassword(), operator.getPassword())) {
             throw new IllegalArgumentException("Current password is incorrect");
         }
 
-        // Hash the new password and save
         operator.setPassword(passwordEncoder.encode(request.getNewPassword()));
         repository.save(operator);
 
