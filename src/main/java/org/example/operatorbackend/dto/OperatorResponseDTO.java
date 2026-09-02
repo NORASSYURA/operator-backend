@@ -11,6 +11,7 @@ public class OperatorResponseDTO {
     private Long companyId;
     private boolean isLoggedIn;
     private LocalDateTime lastLogin;
+    private String role;
 
     public OperatorResponseDTO() {
     }
@@ -45,4 +46,7 @@ public class OperatorResponseDTO {
 
     public LocalDateTime getLastLogin() { return lastLogin; }
     public void setLastLogin(LocalDateTime lastLogin) { this.lastLogin = lastLogin; }
+
+    public String getRole() { return role; }
+    public void setRole(String role) { this.role = role; }
 }
