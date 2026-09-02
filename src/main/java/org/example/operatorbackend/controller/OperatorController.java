@@ -63,7 +63,7 @@ public class OperatorController {
         newOperator.setCompanyId(1L);
         newOperator.setLoggedIn(false);
         String role = (request.getRole() != null) ? request.getRole() : "USER";
-newOperator.setRole(role);
+        newOperator.setRole(role);
         repository.save(newOperator);
 
         return OperatorResponseDTO.fromEntity(newOperator);
@@ -78,6 +78,24 @@ newOperator.setRole(role);
         operator.setEmail(updatedOperator.getEmail());
         repository.save(operator);
         
+        return OperatorResponseDTO.fromEntity(operator);
+    }
+
+    // NEW: Change Password endpoint
+    @PutMapping("/change-password/{id}")
+    public OperatorResponseDTO changePassword(@PathVariable Long id, @RequestBody LoginRequest request) {
+        Operator operator = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Operator not found with id: " + id));
+
+        // Check if the old password matches
+        if (!passwordEncoder.matches(request.getPassword(), operator.getPassword())) {
+            throw new IllegalArgumentException("Current password is incorrect");
+        }
+
+        // Hash the new password and save
+        operator.setPassword(passwordEncoder.encode(request.getNewPassword()));
+        repository.save(operator);
+
         return OperatorResponseDTO.fromEntity(operator);
     }
 
@@ -117,6 +135,7 @@ class LoginRequest {
     private String name;
     private String email;
     private String password;
+    private String newPassword;
     private String role;
 
     public String getName() { return name; }
@@ -127,6 +146,9 @@ class LoginRequest {
 
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
+
+    public String getNewPassword() { return newPassword; }
+    public void setNewPassword(String newPassword) { this.newPassword = newPassword; }
 
     public String getRole() { return role; }
     public void setRole(String role) { this.role = role; }
