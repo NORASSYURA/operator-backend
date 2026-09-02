@@ -13,12 +13,11 @@ public class Schedule {
 
     private String title;
     private String description;
-    private LocalDateTime startTime;
-    private LocalDateTime endTime;
-
-    @ManyToOne
-    @JoinColumn(name = "operator_id")
-    private Operator operator;
+    private LocalDateTime shiftStart;
+    private LocalDateTime shiftEnd;
+    private String status;
+    private Long companyId;
+    private Long operatorId;
 
     // Getters and Setters
     public Long getId() { return id; }
@@ -30,12 +29,18 @@ public class Schedule {
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
 
-    public LocalDateTime getStartTime() { return startTime; }
-    public void setStartTime(LocalDateTime startTime) { this.startTime = startTime; }
+    public LocalDateTime getShiftStart() { return shiftStart; }
+    public void setShiftStart(LocalDateTime shiftStart) { this.shiftStart = shiftStart; }
 
-    public LocalDateTime getEndTime() { return endTime; }
-    public void setEndTime(LocalDateTime endTime) { this.endTime = endTime; }
+    public LocalDateTime getShiftEnd() { return shiftEnd; }
+    public void setShiftEnd(LocalDateTime shiftEnd) { this.shiftEnd = shiftEnd; }
 
-    public Operator getOperator() { return operator; }
-    public void setOperator(Operator operator) { this.operator = operator; }
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
+
+    public Long getCompanyId() { return companyId; }
+    public void setCompanyId(Long companyId) { this.companyId = companyId; }
+
+    public Long getOperatorId() { return operatorId; }
+    public void setOperatorId(Long operatorId) { this.operatorId = operatorId; }
 }
