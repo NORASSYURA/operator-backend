@@ -23,6 +23,7 @@ public class OperatorResponseDTO {
         dto.setCompanyId(operator.getCompanyId());
         dto.setLoggedIn(operator.isLoggedIn());
         dto.setLastLogin(operator.getLastLogin());
+        dto.setRole(operator.getRole());
         return dto;
     }
 
