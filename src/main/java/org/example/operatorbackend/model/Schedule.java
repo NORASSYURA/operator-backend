@@ -4,43 +4,38 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "schedule")
+@Table(name = "schedules")
 public class Schedule {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "operator_id")
-    private Long operatorId;
+    private String title;
+    private String description;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
 
-    @Column(name = "company_id")
-    private Long companyId;
-
-    @Column(name = "shift_start")
-    private LocalDateTime shiftStart;
-
-    @Column(name = "shift_end")
-    private LocalDateTime shiftEnd;
-
-    private String status; // "SCHEDULED", "IN_PROGRESS", "COMPLETED"
+    @ManyToOne
+    @JoinColumn(name = "operator_id")
+    private Operator operator;
 
     // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
-    public Long getOperatorId() { return operatorId; }
-    public void setOperatorId(Long operatorId) { this.operatorId = operatorId; }
+    public String getTitle() { return title; }
+    public void setTitle(String title) { this.title = title; }
 
-    public Long getCompanyId() { return companyId; }
-    public void setCompanyId(Long companyId) { this.companyId = companyId; }
+    public String getDescription() { return description; }
+    public void setDescription(String description) { this.description = description; }
 
-    public LocalDateTime getShiftStart() { return shiftStart; }
-    public void setShiftStart(LocalDateTime shiftStart) { this.shiftStart = shiftStart; }
+    public LocalDateTime getStartTime() { return startTime; }
+    public void setStartTime(LocalDateTime startTime) { this.startTime = startTime; }
 
-    public LocalDateTime getShiftEnd() { return shiftEnd; }
-    public void setShiftEnd(LocalDateTime shiftEnd) { this.shiftEnd = shiftEnd; }
+    public LocalDateTime getEndTime() { return endTime; }
+    public void setEndTime(LocalDateTime endTime) { this.endTime = endTime; }
 
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
+    public Operator getOperator() { return operator; }
+    public void setOperator(Operator operator) { this.operator = operator; }
 }
