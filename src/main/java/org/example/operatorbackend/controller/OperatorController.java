@@ -73,6 +73,17 @@ public class OperatorController {
 
         return OperatorResponseDTO.fromEntity(newOperator);
     }
+        @PutMapping("/{id}")
+    public OperatorResponseDTO updateOperator(@PathVariable Long id, @RequestBody Operator updatedOperator) {
+        Operator operator = repository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Operator not found with id: " + id));
+        
+        operator.setName(updatedOperator.getName());
+        operator.setEmail(updatedOperator.getEmail());
+        repository.save(operator);
+        
+        return OperatorResponseDTO.fromEntity(operator);
+    }
     @DeleteMapping("/{id}")
     public void deleteOperator(@PathVariable Long id) {
         repository.deleteById(id);
