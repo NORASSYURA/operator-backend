@@ -8,5 +8,7 @@ RUN mvn clean package -DskipTests
 FROM eclipse-temurin:21-jre
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
+# IMPORTANT: Tell Render to use port 8080
+ENV PORT=8080
 EXPOSE 8080
 CMD ["java", "-jar", "app.jar"]
