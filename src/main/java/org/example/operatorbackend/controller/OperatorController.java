@@ -50,7 +50,6 @@ public class OperatorController {
         return response;
     }
 
-    // NEW: Forgot Password - resets to Temp1234!
     @PostMapping("/forgot-password")
     public Map<String, String> forgotPassword(@RequestBody LoginRequest request) {
         Operator operator = repository.findByEmail(request.getEmail())
@@ -77,6 +76,8 @@ public class OperatorController {
         newOperator.setName(request.getName());
         newOperator.setCompanyId(1L);
         newOperator.setLoggedIn(false);
+        newOperator.setHomeAddress(request.getHomeAddress());
+        newOperator.setPhoneNumber(request.getPhoneNumber());
         String role = (request.getRole() != null) ? request.getRole() : "USER";
         newOperator.setRole(role);
         repository.save(newOperator);
@@ -92,6 +93,8 @@ public class OperatorController {
         operator.setName(updatedOperator.getName());
         operator.setEmail(updatedOperator.getEmail());
         operator.setRate(updatedOperator.getRate());
+        operator.setHomeAddress(updatedOperator.getHomeAddress());
+        operator.setPhoneNumber(updatedOperator.getPhoneNumber());
         repository.save(operator);
         
         return OperatorResponseDTO.fromEntity(operator);
@@ -150,6 +153,8 @@ class LoginRequest {
     private String password;
     private String newPassword;
     private String role;
+    private String homeAddress;
+    private String phoneNumber;
 
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
@@ -165,4 +170,10 @@ class LoginRequest {
 
     public String getRole() { return role; }
     public void setRole(String role) { this.role = role; }
+
+    public String getHomeAddress() { return homeAddress; }
+    public void setHomeAddress(String homeAddress) { this.homeAddress = homeAddress; }
+
+    public String getPhoneNumber() { return phoneNumber; }
+    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
 }
