@@ -42,7 +42,7 @@ public class OperatorController {
         repository.save(operator);
 
         // Generate the JWT Token
-        String token = jwtUtil.generateToken(operator.getEmail());
+        String token = jwtUtil.generateToken(operator.getEmail(), operator.getRole());
 
         // Return the Token AND the User Data
         Map<String, Object> response = new HashMap<>();
@@ -67,6 +67,7 @@ public class OperatorController {
 
         newOperator.setCompanyId(1L);
         newOperator.setLoggedIn(false);
+        newOperator.setRole("USER");
 
         repository.save(newOperator);
 
