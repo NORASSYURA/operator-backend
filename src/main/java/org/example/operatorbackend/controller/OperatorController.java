@@ -50,6 +50,21 @@ public class OperatorController {
         return response;
     }
 
+    // NEW: Forgot Password - resets to Temp1234!
+    @PostMapping("/forgot-password")
+    public Map<String, String> forgotPassword(@RequestBody LoginRequest request) {
+        Operator operator = repository.findByEmail(request.getEmail())
+                .orElseThrow(() -> new ResourceNotFoundException("Operator not found with email: " + request.getEmail()));
+
+        String tempPassword = "Temp1234!";
+        operator.setPassword(passwordEncoder.encode(tempPassword));
+        repository.save(operator);
+
+        Map<String, String> response = new HashMap<>();
+        response.put("message", "Password has been reset to: " + tempPassword);
+        return response;
+    }
+
     @PostMapping("/register")
     public OperatorResponseDTO register(@RequestBody LoginRequest request) {
         if (repository.findByEmail(request.getEmail()).isPresent()) {
@@ -76,7 +91,7 @@ public class OperatorController {
         
         operator.setName(updatedOperator.getName());
         operator.setEmail(updatedOperator.getEmail());
-        operator.setRate(updatedOperator.getRate()); // Update Rate
+        operator.setRate(updatedOperator.getRate());
         repository.save(operator);
         
         return OperatorResponseDTO.fromEntity(operator);
