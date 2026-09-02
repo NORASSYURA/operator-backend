@@ -62,8 +62,8 @@ public class OperatorController {
         newOperator.setName(request.getName());
         newOperator.setCompanyId(1L);
         newOperator.setLoggedIn(false);
-        newOperator.setRole("USER");
-
+        String role = (request.getRole() != null) ? request.getRole() : "USER";
+newOperator.setRole(role);
         repository.save(newOperator);
 
         return OperatorResponseDTO.fromEntity(newOperator);
