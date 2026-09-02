@@ -76,7 +76,7 @@ public class OperatorController {
         
         operator.setName(updatedOperator.getName());
         operator.setEmail(updatedOperator.getEmail());
-        operator.setRate(updatedOperator.getRate());
+        operator.setRate(updatedOperator.getRate()); // Update Rate
         repository.save(operator);
         
         return OperatorResponseDTO.fromEntity(operator);
