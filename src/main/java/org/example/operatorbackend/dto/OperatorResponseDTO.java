@@ -13,6 +13,8 @@ public class OperatorResponseDTO {
     private LocalDateTime lastLogin;
     private String role;
     private Double rate;
+    private String homeAddress;
+    private String phoneNumber;
 
     public OperatorResponseDTO() {
     }
@@ -27,6 +29,8 @@ public class OperatorResponseDTO {
         dto.setLastLogin(operator.getLastLogin());
         dto.setRole(operator.getRole());
         dto.setRate(operator.getRate());
+        dto.setHomeAddress(operator.getHomeAddress());
+        dto.setPhoneNumber(operator.getPhoneNumber());
         return dto;
     }
 
@@ -54,4 +58,10 @@ public class OperatorResponseDTO {
 
     public Double getRate() { return rate; }
     public void setRate(Double rate) { this.rate = rate; }
+
+    public String getHomeAddress() { return homeAddress; }
+    public void setHomeAddress(String homeAddress) { this.homeAddress = homeAddress; }
+
+    public String getPhoneNumber() { return phoneNumber; }
+    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
 }
