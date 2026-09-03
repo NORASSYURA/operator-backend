@@ -17,6 +17,7 @@ public class Feedback {
     private String jobTitle;
     private int rating; // 1 to 5
     private String comment;
+    private Long companyId; // Added this!
     private LocalDateTime createdAt = LocalDateTime.now();
 
     // Getters and Setters
@@ -40,6 +41,9 @@ public class Feedback {
 
     public String getComment() { return comment; }
     public void setComment(String comment) { this.comment = comment; }
+
+    public Long getCompanyId() { return companyId; }
+    public void setCompanyId(Long companyId) { this.companyId = companyId; }
 
     public LocalDateTime getCreatedAt() { return createdAt; }
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
