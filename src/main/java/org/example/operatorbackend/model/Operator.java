@@ -18,13 +18,13 @@ public class Operator {
     private String role;
     private Double rate;
     private String homeAddress;
-    private String phoneNumber;
+        private String phoneNumber;
+    
+    @Transient
+    private List<Document> documents;
 
     @Column(name = "company_id")
     private Long companyId;
-        @Transient // This tells JPA not to create a database column for this!
-    private List<Document> documents;
-
     @Column(name = "is_logged_in")
     private Boolean isLoggedIn = false;
 
