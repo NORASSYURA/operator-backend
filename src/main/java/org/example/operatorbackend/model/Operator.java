@@ -20,10 +20,6 @@ public class Operator {
     private String homeAddress;
     private String phoneNumber;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "operator_id")
-    private List<Document> documents;
-
     @Column(name = "company_id")
     private Long companyId;
 
