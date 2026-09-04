@@ -15,7 +15,7 @@ public class OperatorResponseDTO {
     private Double rate;
     private String homeAddress;
     private String phoneNumber;
-    private String nric; // ADDED NRIC
+    private String nric;
 
     public OperatorResponseDTO() {
     }
@@ -32,7 +32,7 @@ public class OperatorResponseDTO {
         dto.setRate(operator.getRate());
         dto.setHomeAddress(operator.getHomeAddress());
         dto.setPhoneNumber(operator.getPhoneNumber());
-        dto.setNric(operator.getNric()); // ADDED NRIC
+        dto.setNric(operator.getNric());
         return dto;
     }
 
