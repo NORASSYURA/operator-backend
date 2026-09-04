@@ -71,4 +71,8 @@ public class OperatorResponseDTO {
 
     public String getNric() { return nric; }
     public void setNric(String nric) { this.nric = nric; }
+
+    public String getJobPosition() { return jobPosition; }
+
+    public void setJobPosition(String jobPosition) { this.jobPosition = jobPosition; }
 }
