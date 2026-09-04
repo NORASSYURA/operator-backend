@@ -2,7 +2,6 @@ package org.example.operatorbackend.model;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Table(name = "operators")
@@ -18,15 +17,12 @@ public class Operator {
     private String role;
     private Double rate;
     private String homeAddress;
-        private String phoneNumber;
-        private String nric;
-        private String nric;
-    
-    @Transient
-    private List<Document> documents;
+    private String phoneNumber;
+    private String nric; // ADD THIS
 
     @Column(name = "company_id")
     private Long companyId;
+
     @Column(name = "is_logged_in")
     private Boolean isLoggedIn = false;
 
@@ -61,8 +57,8 @@ public class Operator {
     public String getPhoneNumber() { return phoneNumber; }
     public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
 
-    public List<Document> getDocuments() { return documents; }
-    public void setDocuments(List<Document> documents) { this.documents = documents; }
+    public String getNric() { return nric; }
+    public void setNric(String nric) { this.nric = nric; }
 
     public Long getCompanyId() { return companyId; }
     public void setCompanyId(Long companyId) { this.companyId = companyId; }
@@ -75,10 +71,4 @@ public class Operator {
 
     public LocalDateTime getLastLogout() { return lastLogout; }
     public void setLastLogout(LocalDateTime lastLogout) { this.lastLogout = lastLogout; }
-
-        public String getNric() { return nric; }
-    public void setNric(String nric) { this.nric = nric; }
-
-        public String getNric() { return nric; }
-    public void setNric(String nric) { this.nric = nric; }
 }
