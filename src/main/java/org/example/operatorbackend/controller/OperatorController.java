@@ -97,6 +97,7 @@ public class OperatorController {
         operator.setPhoneNumber(updatedOperator.getPhoneNumber());
                 operator.setNric(updatedOperator.getNric());
         operator.setNric(updatedOperator.getNric());
+        operator.setJobPosition(updatedOperator.getJobPosition());
         repository.save(operator);
         
         return OperatorResponseDTO.fromEntity(operator);
