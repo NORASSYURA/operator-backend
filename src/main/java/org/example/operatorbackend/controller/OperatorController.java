@@ -95,6 +95,7 @@ public class OperatorController {
         operator.setRate(updatedOperator.getRate());
         operator.setHomeAddress(updatedOperator.getHomeAddress());
         operator.setPhoneNumber(updatedOperator.getPhoneNumber());
+                operator.setNric(updatedOperator.getNric());
         repository.save(operator);
         
         return OperatorResponseDTO.fromEntity(operator);
