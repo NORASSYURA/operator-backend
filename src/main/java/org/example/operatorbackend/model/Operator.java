@@ -20,6 +20,7 @@ public class Operator {
     private String homeAddress;
         private String phoneNumber;
         private String nric;
+        private String nric;
     
     @Transient
     private List<Document> documents;
@@ -74,6 +75,9 @@ public class Operator {
 
     public LocalDateTime getLastLogout() { return lastLogout; }
     public void setLastLogout(LocalDateTime lastLogout) { this.lastLogout = lastLogout; }
+
+        public String getNric() { return nric; }
+    public void setNric(String nric) { this.nric = nric; }
 
         public String getNric() { return nric; }
     public void setNric(String nric) { this.nric = nric; }
