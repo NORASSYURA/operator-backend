@@ -18,7 +18,7 @@ public class Operator {
     private Double rate;
     private String homeAddress;
     private String phoneNumber;
-    private String nric; // ADD THIS
+    private String nric;
 
     @Column(name = "company_id")
     private Long companyId;
@@ -32,7 +32,6 @@ public class Operator {
     @Column(name = "last_logout")
     private LocalDateTime lastLogout;
 
-    // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
