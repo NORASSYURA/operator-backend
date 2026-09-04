@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 
 public class OperatorResponseDTO {
 
+    private String jobPosition
     private Long id;
     private String name;
     private String email;
@@ -24,6 +25,7 @@ public class OperatorResponseDTO {
         OperatorResponseDTO dto = new OperatorResponseDTO();
         dto.setId(operator.getId());
         dto.setName(operator.getName());
+        dto.setJobPosition(operator.getJobPosition());
         dto.setEmail(operator.getEmail());
         dto.setCompanyId(operator.getCompanyId());
         dto.setLoggedIn(operator.isLoggedIn());
