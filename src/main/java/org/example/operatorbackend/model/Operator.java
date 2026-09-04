@@ -19,6 +19,7 @@ public class Operator {
     private String homeAddress;
     private String phoneNumber;
     private String nric;
+    private String jobPosition;
 
     @Column(name = "company_id")
     private Long companyId;
@@ -70,4 +71,7 @@ public class Operator {
 
     public LocalDateTime getLastLogout() { return lastLogout; }
     public void setLastLogout(LocalDateTime lastLogout) { this.lastLogout = lastLogout; }
+
+    public String getJobPosition() { return jobPosition; }
+public void setJobPosition(String jobPosition) { this.jobPosition = jobPosition; }
 }
